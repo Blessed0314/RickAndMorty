@@ -1,0 +1,13 @@
+.nav
+{
+   background-color: green;
+   background-image: url(https://www.freepnglogos.com/uploads/rick-and-morty-png/list-rick-and-morty-episodes-wikipedia-24.png);
+   background-position: center center;
+   background-repeat: no-repeat;
+   padding: 3.5em;
+   display: flex;
+   flex-direction: row;
+   justify-content: end;
+   margin-bottom: 1em;
+
+}

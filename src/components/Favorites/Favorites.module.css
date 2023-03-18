@@ -1,0 +1,12 @@
+.container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 85%;
+    margin: auto;
+    background-image: url(https://elordenmundial.com/wp-content/uploads/2017/01/ESPACIO.jpg);
+    background-position: center center;
+    padding: 2em;
+    border-radius: 15px;
+}

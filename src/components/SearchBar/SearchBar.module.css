@@ -1,0 +1,27 @@
+.searchInput
+{
+   border: 0px;
+   border-radius: 10px 0px 0px 0px;
+   height: 2em;
+}
+
+.searchButton
+{
+    height: 2em;
+    color: black;
+    font-weight: bold;
+    background-color: rgb(1, 156, 156);
+    border: 0px;
+    border-radius: 0px 0px 10px 0px;
+}
+.searchButton:hover
+{
+    font-weight: bold;
+    background-color: aqua;
+}
+
+.bar
+{
+    display: inline;
+    width: 15%;
+}
