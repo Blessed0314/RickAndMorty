@@ -1,9 +1,16 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import style from "./Favorites.module.css";
 import Card from "../Card/Card";
+import { useEffect } from "react";
+import { getFavorites } from "../../redux/actions";
 
 const Favorites = () => {
+    const dispatch = useDispatch();
     const favorites = useSelector(state=>state.myFavorites);
+    
+    useEffect(()=>{
+      dispatch(getFavorites());
+    },[]);
 
     return(
         <div className={style.container}>

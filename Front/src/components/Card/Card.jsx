@@ -1,20 +1,34 @@
 import style from "./Card.module.css"
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { addFavorite, removeFavorite } from "../../redux/actions";
+import { getFavorites, removeFavorite } from "../../redux/actions";
+import axios from "axios";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 
-function Card({id,name,species,gender,image,onClose, addFavorite, removeFavorite,myFavorites,}) 
+function Card({id,name,species,gender,image,onClose,myFavorites,}) 
 {
    const [isFav, setIsFav] = useState(false);
+   const dispatch= useDispatch();
+   
+   const addFavorite = async (character) => {
+      await axios.post("http://localhost:3001/rickandmorty/fav", character);
+        //.then((res)=>console.log("ok"));
+        alert("Agregado con éxito");
+   };
 
+   const removeFavorite = async (id) => {
+      await axios.delete(`http://localhost:3001/rickandmorty/fav/${id}`);
+      dispatch(getFavorites());
+      alert("Eliminado con éxito");
+   }
    const handleFavorite = () => {
       if(isFav){
          setIsFav(false);
          removeFavorite(id);
       } else {
          setIsFav(true);
-         addFavorite({id,name,species,gender,image,onClose,addFavorite,removeFavorite});
+         addFavorite({id,name,species,gender,image});
       }
    };
    useEffect(() => {
@@ -42,7 +56,7 @@ function Card({id,name,species,gender,image,onClose, addFavorite, removeFavorite
 }
 const mapDispatchToProps = (dispatch)  => {
    return{
-      addFavorite: (character)=>{dispatch(addFavorite(character));},
+      
       removeFavorite: (id) => {dispatch(removeFavorite(id));}
    }
 };

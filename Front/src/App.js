@@ -31,15 +31,14 @@ const password = "1password"
 
   const onSearch = (id) =>
   {
-    const URL_API = "https://be-a-rym.up.railway.app/api";
-    const KEY_API = "5c6d6737bae1.431a798bb8ab6ea058b3";
+    const URL = "http://localhost:3001";
 
     if (characters.find((char) => char.id === id))
     {
       return alert("Personaje repetido");
     }
-
-    fetch(`${URL_API}/character/${id}?key=${KEY_API}`)
+    
+    fetch(`${URL}/onsearch/${id}`)
     .then(response=>response.json())
     .then((data) => {
       if(data.name)

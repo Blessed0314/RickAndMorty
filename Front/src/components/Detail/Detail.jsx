@@ -9,9 +9,8 @@ const Detail = () => {
     const [character,setCharacter] = useState({});
 
     useEffect(() => {
-        const URL_API = "https://be-a-rym.up.railway.app/api";
-        const KEY_API = "5c6d6737bae1.431a798bb8ab6ea058b3";
-        axios(`${URL_API}/character/${detailId}?key=${KEY_API}`).then(response => 
+        const URL_BASE = "http://localhost:3001";
+        axios(`${URL_BASE}/detail/${detailId}`).then(response => 
             setCharacter(response.data)
         );
     },[]);
